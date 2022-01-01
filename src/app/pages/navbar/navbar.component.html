@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-sm">
+  <div class="navbarr">
+    <a class="navbar-brand text-white pl-5"> <span class="material-icons">
+        redeem
+      </span> Florida Cart</a>
+  </div>
+  <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+    aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="material-icons text-white">
+      dehaze
+    </span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavId">
+    <ul class="navbar-nav ml-auto mt-2 mt-lg-0 mr-5">
+      <li class="nav-item ">
+        <a class="nav-link" routerLink="/home">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/registraion">Signup</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/cart"><span class="material-icons">
+            shopping_cart
+          </span>
+          <span matBadge="{{badgenumber}}" matBadgeColor="warn" matBadgeSize="medium"></span></a>
+      </li>
+
+    </ul>
+
+  </div>
+  <div class="time">
+    <button mat-raised-button color="white">
+      <span class="material-icons">
+        schedule
+      </span> {{date | date: 'hh:mm:ss'}}</button>
+  </div>
+</nav>

@@ -1,0 +1,80 @@
+<!--
+<div class="bg h-100">
+  <div class="container ">
+    <div class="main-div">
+      <mat-card class="text-center p-3">
+        <mat-card-title class="text-center text-uppercase">Cart is Empty</mat-card-title>
+        <mat-card-content>
+          <img src="assets/empty-cart.png " class="image-fluid w-75 h-75" alt="" srcset="">
+        </mat-card-content>
+
+        <mat-card-footer class="pb-2">
+        Your cart items are empty please chooose items..
+        </mat-card-footer>
+      </mat-card>
+    </div>
+
+
+  </div>
+</div>
+ -->
+<ng-container *ngIf="cartproduct.length ===0">
+  <div class="container">
+    <div class="card">
+      <h5 class="card-title"> My Cart</h5>
+    </div>
+    <div class="center">
+      <img src="assets/cart.jpeg" alt="">
+      <h4><b>your cart is empaty</b></h4>
+      <h6>Add item to it now</h6>
+      <button routerLink="/home" class=" btn btn-primary"> Shop now</button>
+    </div>
+  </div>
+
+</ng-container>
+
+
+<ng-container *ngIf="cartproduct.length !=0">
+  <div class="container">
+    <div class="cart-product">
+      <mat-card>
+      <table class="table table-bordered table-resonsive text-center table-striped">
+        <thead>
+          <tr>
+            <th>Sr.no</th>
+            <th>Product Name</th>
+            <th>product Image</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Total</th>
+            <th>Action</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pd of cartproduct ;let i= index">
+            <td>{{i+1}}</td>
+            <td>{{pd.title}}</td>
+            <td><img src="{{pd.image}}"></td>
+            <td><p>{{pd.description}}</p></td>
+            <td>{{pd.price}}</td>
+            <td>{{pd.price}}</td>
+            <td><button  mat-raised-button (click)="delet(pd)" type="button">
+                <mat-icon style="color: red;">delete</mat-icon>
+              </button></td>
+          </tr>
+          <tr >
+            <td colspan=6><strong>Total Amount : {{grandtotal | currency:"INR"}}</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="row btn-actions">
+        <button type="button" mat-raised-button color="warn" (click)="removeall()" class=" col col-md-3 ">Remove All</button>
+        <button type="button" mat-raised-button color="primary" routerLink="/home" class=" col col-md-3 ml-2 ">Shop Now</button>
+        <button type="button" mat-raised-button color="accent" class=" col col-md-3  ml-2" routerLink="/checkout">Order Now</button>
+      </div>
+    </mat-card>
+    </div>
+  </div>
+</ng-container>

@@ -1,0 +1,26 @@
+<div class="bg">
+  <div class="container card-container">
+    <div class="row card-desk card-columns d-flex justify-content-center ">
+
+        <mat-card class="example-card mt-3 text-center" *ngFor="let item of products" >
+          <mat-card-header>
+            <mat-card-title><p class="text1">{{item.title}}</p></mat-card-title>
+          </mat-card-header>
+          <img mat-card-image class="img-1" src={{item.image}} alt="Photo of a Shiba Inu">
+          <mat-card-content>
+            <p class="text-truncate">
+              {{item.description}}
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button  mat-raised-button color="primary">{{item.price |  currency:"INR"}}</button>
+            <button mat-button  mat-raised-button color="accent" (click)="addtocart(item)">Add Cart</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+
+
+  </div>
+</div>
+
+
