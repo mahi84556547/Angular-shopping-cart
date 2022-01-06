@@ -1,7 +1,7 @@
 import { CartService } from 'src/app/services/cart.service';
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from 'src/app/services/products.service';
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -10,7 +10,7 @@ import { ProductsService } from 'src/app/services/products.service';
 export class HomeComponent implements OnInit {
   products: any;
 
-  constructor(public httpc:ProductsService,private cartSer :CartService) { }
+  constructor(public httpc:ProductsService,private cartSer :CartService,private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.getData()
@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
 
   addtocart(pd:any){
     this.cartSer.addtocart(pd);
-
+    this.toastr.success('Hello user!', 'Succesfully added!');
   }
 
 

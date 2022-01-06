@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { CartService } from 'src/app/services/cart.service';
 export class CartComponent implements OnInit {
   public cartproduct:any
   public grandtotal!:number;
-  constructor(private cartservice : CartService) { }
+  constructor(private cartservice : CartService,private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.cartservice.getProducts()
@@ -19,11 +20,12 @@ export class CartComponent implements OnInit {
     })
   }
   delet(pd:any){
-    this.cartservice.removecart(pd)
+    this.cartservice.removecart(pd);
+    this.toastr.warning('Hello user!', 'Succesfully deleted!');
   }
   removeall(){
     this.cartservice.removeallcart()
-
+    this.toastr.warning('Hello user!', 'Succesfully deleted!');
   }
 
 }

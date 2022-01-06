@@ -2,9 +2,11 @@
   max-width: 250px;
 }
 
-.img-1 {
+.example-card .img-1 {
   width: 200px;
   height: 200px;
+  transition: 0.3s ease-in-out;
+  transform: scale(-1,1);
 }
 .text1 {
   font-size: 15px;

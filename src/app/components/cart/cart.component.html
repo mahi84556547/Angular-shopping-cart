@@ -20,14 +20,14 @@
  -->
 <ng-container *ngIf="cartproduct.length ===0">
   <div class="container">
-    <div class="card">
+    <div class="card mat-elevation-z2" >
       <h5 class="card-title"> My Cart</h5>
     </div>
     <div class="center">
       <img src="assets/cart.jpeg" alt="">
       <h4><b>your cart is empaty</b></h4>
       <h6>Add item to it now</h6>
-      <button routerLink="/home" class=" btn btn-primary"> Shop now</button>
+      <button routerLink="/home"  mat-raised-button color="primary"> Shop now</button>
     </div>
   </div>
 

@@ -21,7 +21,7 @@ import { CartComponent } from './components/cart/cart.component'
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { CheckoutComponent } from './components/checkout/checkout.component';
-
+import { ToastrModule } from 'ngx-toastr';
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
 }
@@ -39,10 +39,16 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   imports: [
 
     BrowserModule,
+
     AppRoutingModule,MatIconModule,
     BrowserAnimationsModule,MatToolbarModule,
     MatFormFieldModule,MatInputModule,MatCardModule,
     MatButtonModule,FormsModule,HttpClientModule,MatBadgeModule,
+    ToastrModule.forRoot({
+      timeOut: 1000,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+    }),
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
